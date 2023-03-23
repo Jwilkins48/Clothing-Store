@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase.config";
 import { useNavigate } from "react-router-dom";
-import CheckOutCardEdit from "../components/CheckOutCardEdit!";
+import CheckOutCardEdit from "../components/CheckOutCardEdit";
 
 function CheckOut({ checkOut, setCheckOut, checkOutEdit, setCheckOutEdit }) {
   const [cart, setCart] = useState(null);
