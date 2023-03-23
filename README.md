@@ -1,1 +1,1 @@
-eCommerce website using firebase to add items to cart and wishlist
+eCommerce site made with React, Firebase, Tailwind/DaisyUI
