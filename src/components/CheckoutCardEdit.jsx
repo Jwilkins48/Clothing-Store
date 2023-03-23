@@ -53,7 +53,7 @@ function CheckOutCardEdit({ cartItem, id, deleteCartItem, setCheckOutEdit }) {
             {cartItem.title}
           </div>
 
-          <p className="font-bold text-neutral text-[15px]">Quantity:</p>
+          <p className="font-bold text-neutral text-[15px] mb-1">Quantity:</p>
           <div className="text-lg font-bold text-neutral border border-primary flex justify-around w-24 mb-2 mt-1">
             <div
               onClick={() => changeQuantity(-1)}
