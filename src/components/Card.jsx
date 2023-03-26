@@ -10,41 +10,60 @@ import { db } from "../../firebase.config";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-function Card({ clothing, id, onDelete }) {
+function Card({ clothing, id }) {
   const auth = getAuth();
   const navigate = useNavigate();
   const [wishlist, setWishlist] = useState(false);
 
+  const onDelete = async (id) => {
+    if (window.confirm("Remove from wishlist?")) {
+      await deleteDoc(doc(db, "wishlist", id));
+
+      const updatedCart = wishlist.filter((item) => item.id !== id);
+      setWishlist(updatedCart);
+      setLoading(false);
+      console.log("Deleted");
+    }
+  };
+
   //Add to wishlist
   const onClick = async () => {
-    if (wishlist === true) {
-      setWishlist(!wishlist);
-      onDelete(id);
+    if (auth.currentUser) {
+      if (wishlist === true) {
+        setWishlist(!wishlist);
+        onDelete(id);
+      } else {
+        setWishlist(!wishlist);
+        const dataCopy = {
+          ...clothing,
+          timestamp: serverTimestamp(),
+          userRef: auth.currentUser?.uid,
+        };
+        await setDoc(doc(db, "wishlist", id), dataCopy);
+        console.log("added to wishlist");
+      }
     } else {
-      setWishlist(!wishlist);
-      const dataCopy = {
-        ...clothing,
-        timestamp: serverTimestamp(),
-        userRef: auth.currentUser.uid,
-      };
-      await setDoc(doc(db, "wishlist", id), dataCopy);
-      console.log("added to wishlist");
+      alert("Must be signed in to add to wishlist");
     }
   };
 
   //Check if item is in wishlist
   useEffect(() => {
-    const itemInWishlist = async () => {
-      const docRef = doc(db, "wishlist", id);
-      const docSnap = await getDoc(docRef);
-      const userRef = docSnap.data()?.userRef;
-      if (auth.currentUser.uid === userRef) {
-        setWishlist(true);
-      } else {
-        setWishlist(false);
-      }
-    };
-    itemInWishlist();
+    if (auth.currentUser) {
+      const itemInWishlist = async () => {
+        const docRef = doc(db, "wishlist", id);
+        const docSnap = await getDoc(docRef);
+        const userRef = docSnap.data()?.userRef;
+        if (auth.currentUser?.uid === userRef) {
+          setWishlist(true);
+        } else {
+          setWishlist(false);
+        }
+      };
+      itemInWishlist();
+    } else {
+      console.log("signed out");
+    }
   }, []);
 
   return (
