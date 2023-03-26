@@ -122,7 +122,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="lg:my-32 w-[20rem] lg:w-full mx-auto">
+      <section className="lg:my-32 w-[20rem] lg:w-full mx-auto overflow-hidden">
         <div className=" lg:mx-32 flex flex-col gap-5">
           {/* MODEL ONE */}
           <Reveal effect="fadeInLeft" duration={2000}>
