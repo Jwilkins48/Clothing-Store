@@ -2,10 +2,24 @@ import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase.config";
 
-function CheckOutCardEdit({ cartItem, id, deleteCartItem, setCheckOutEdit }) {
+function CheckOutCardEdit({
+  cartItem,
+  id,
+  deleteCartItem,
+  activeMenu,
+  setActiveMenu,
+}) {
   const [quantity, setQuantity] = useState(cartItem.amount);
   const [size, setSize] = useState(cartItem.sizing);
   const [loading, setLoading] = useState(true);
+
+  const toggleActive = (id) => {
+    if (activeMenu == "") {
+      setActiveMenu(id);
+    } else {
+      setActiveMenu("");
+    }
+  };
 
   //Quantity
   const changeQuantity = (num) => {
@@ -22,7 +36,7 @@ function CheckOutCardEdit({ cartItem, id, deleteCartItem, setCheckOutEdit }) {
     await updateDoc(docRef, {
       sizing: size,
     });
-    setCheckOutEdit(false);
+    toggleActive(id);
     setLoading(false);
   };
 
