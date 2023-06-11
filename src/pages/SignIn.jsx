@@ -62,7 +62,7 @@ function SignIn() {
                 value={email}
                 onChange={onChange}
                 id="email"
-                className="input text-green-600 font-bold input-bordered input-primary-focus w-full "
+                className="input text-[#1f6d3c] font-bold input-bordered input-primary-focus w-full "
               />
             </div>
             {/* PASSWORD */}
@@ -73,7 +73,7 @@ function SignIn() {
                 onChange={onChange}
                 id="password"
                 placeholder="Password"
-                className="input input-bordered text-green-600 font-bold input-primary-focus w-full "
+                className="input input-bordered text-[#1f6d3c] font-bold input-primary-focus w-full "
               />
               {/* SHOW PASSWORD */}
               <div
@@ -81,9 +81,9 @@ function SignIn() {
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <i className="fa-regular text-green-600 font-bold fa-eye-slash" />
+                  <i className="fa-regulartext-[#1f6d3c] font-bold fa-eye-slash" />
                 ) : (
-                  <i className="fa-regular text-green-600 font-bold fa-eye" />
+                  <i className="fa-regular text-[#1f6d3c] font-bold fa-eye" />
                 )}
               </div>
             </div>
