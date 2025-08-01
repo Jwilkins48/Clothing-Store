@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 function CheckOutCard({ cartItem, activeMenu, setActiveMenu, deleteCartItem }) {
   const toggleActive = (id) => {
     if (activeMenu == "") {
@@ -8,6 +8,8 @@ function CheckOutCard({ cartItem, activeMenu, setActiveMenu, deleteCartItem }) {
       setActiveMenu("");
     }
   };
+
+  const navigate = useNavigate();
   return (
     <div
       key={cartItem.id}
@@ -41,9 +43,12 @@ function CheckOutCard({ cartItem, activeMenu, setActiveMenu, deleteCartItem }) {
 
       <div className=" justify-between mt-2">
         <div className="ml-3 mb-2 w-[10.5rem]">
-          <div className="text-[16px] underline font-bold text-neutral mb-1">
+          <button
+            onClick={() => navigate(`/shop/${cartItem.id}`)}
+            className="text-[16px] text-start underline font-bold text-neutral mb-1"
+          >
             {cartItem.data.title}
-          </div>
+          </button>
           <p className="font-bold text-neutral text-[15px]">
             Quantity:{" "}
             <span className="text-primary ">{cartItem.data.amount}</span>
