@@ -77,12 +77,13 @@ function SignUp() {
           </div>
           <h1 className="font-bold text-yellow-200 ml-2 text-xl">Sign up</h1>
         </header>
+
         {/* USER NAME */}
-        <div className="flex flex-col my-20 gap-3 h-24 justify-around">
+        <div className="flex flex-col gap-4 h-24 justify-around">
           <div>
             <input
               placeholder="Name"
-              className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300 w-full mt-1 text-secondary "
+              className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300 w-full mt-1  "
               onChange={onChange}
               type="text"
               id="name"
@@ -93,7 +94,7 @@ function SignUp() {
           <div>
             <input
               placeholder="Email"
-              className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300  w-full mt-1 text-secondary "
+              className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300  w-full mt-1"
               onChange={onChange}
               type="text"
               id="email"
@@ -105,7 +106,7 @@ function SignUp() {
             <div className="relative">
               <input
                 placeholder="Password"
-                className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300  w-full mt-1 text-secondary"
+                className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300  w-full mt-1 "
                 onChange={onChange}
                 type={showPassword ? "text" : "password"}
                 id="password"
@@ -114,9 +115,9 @@ function SignUp() {
               {/* SHOW PASSWORD */}
               <p onClick={() => setShowPassword(!showPassword)}>
                 {!showPassword ? (
-                  <i className="fa-regular text-[#1f6d3c] font-bold fa-eye absolute top-5 right-5 text-secondary" />
+                  <i className="fa-regular text-[#1f6d3c] font-bold fa-eye absolute top-5 right-5 " />
                 ) : (
-                  <i className="fa-solid text-[#1f6d3c] font-bold fa-eye-slash absolute top-5 right-5 text-secondary" />
+                  <i className="fa-solid text-[#1f6d3c] font-bold fa-eye-slash absolute top-5 right-5 " />
                 )}
               </p>
             </div>
@@ -126,15 +127,15 @@ function SignUp() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               id="confirmPassword"
-              className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300 w-full mt-4 text-secondary"
+              className="input text-[#1f6d3c] font-bold bg-base-100 border border-gray-300 w-full mt-4 "
               type={showPassword ? "text" : "password"}
             />
           </div>
+          {/* SUBMIT */}
+          <button className="btn bg-yellow-200 text-gray-500 border-0 mt-1">
+            Sign Up
+          </button>
         </div>
-        {/* SUBMIT */}
-        <button className="btn bg-yellow-200 text-gray-500 border-0 mt-4">
-          Sign Up
-        </button>
       </form>
     </div>
   );
