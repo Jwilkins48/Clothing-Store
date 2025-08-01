@@ -48,7 +48,7 @@ function Home() {
 
   return (
     <div>
-      <section id="home" className="h:[16rem] lg:h-[42rem] background relative">
+      <main id="home" className="h:[16rem] lg:h-[42rem] background relative">
         <figure>
           <img
             className="img lg:w-full md:w-[50rem] h-[25rem] lg:h-auto"
@@ -93,23 +93,22 @@ function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </main>
       <section className="text-center">
+        <h1 className="mt-24 text-5xl text-neutral featured ">
+          Featured Items
+        </h1>
+
+        <div className="divider lg:w-[50rem] lg:mx-auto mx-8 my-14">
+          <i className="fa-regular my-2 text-green-500 fa-heart" />
+        </div>
+
         <div
           data-aos="fade-up"
           data-aos-offset="300"
           data-aos-duration="1000"
           data-aos-once="true"
-        >
-          <h1 className="mt-24 text-5xl text-neutral featured ">
-            Featured Items
-          </h1>
-
-          <div className="divider lg:w-[50rem] lg:mx-auto mx-8 my-14">
-            <i className="fa-regular my-2 text-green-500 fa-heart" />
-          </div>
-        </div>
-
+        ></div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-16">
           {featured?.map((featured) => (
             <FeaturedCard
@@ -140,10 +139,10 @@ function Home() {
                 </h1>
                 <div className="divider lg:hidden my-0"></div>
                 <p className=" w-80 lg:w-full text-lg lg:text-[26px] line mt-2 text-neutral">
-                  Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
-                  iaculis. Iaculis urna id volutpat lacus laoreet non. Magna sit
-                  amet purus gravida quis blandit. Habitant morbi tristique
-                  senectus et netus. Habitant morbi tristique senectus et netus.
+                  At Daisies we celebrate individuality and aim to provide
+                  styles that make you feel confident. Our carefully chosen
+                  pieces reflect quality and comfort, ensuring you look and feel
+                  your best every day
                 </p>
               </div>
             </div>
@@ -157,10 +156,9 @@ function Home() {
                 </h1>
                 <div className="divider lg:hidden my-0"></div>
                 <p className="text-lg lg:text-[26px] line mt-2 mb-4 text-neutral">
-                  Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
-                  iaculis. Iaculis urna id volutpat lacus laoreet non. Magna sit
-                  amet purus gravida quis blandit. Habitant morbi tristique
-                  senectus et netus.
+                  Daisies is the ultimate destination for stylish and affordable
+                  fashion. Offering a curated selection of the latest trends,
+                  and unique pieces to help you express your individuality
                 </p>
               </div>
               <figure>
@@ -188,9 +186,9 @@ function Home() {
                 </h1>
                 <div className="divider lg:hidden my-0"></div>
                 <p className="text-xl lg:text-[26px] line mt-2 text-neutral">
-                  Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
-                  iaculis. Iaculis urna id volutpat lacus laoreet non. Magna sit
-                  amet purus gravida quis blandit.
+                  Our mission is to provide you with high-quality clothing and
+                  exceptional service, ensuring a seamless shopping experience
+                  both online and in-store
                 </p>
               </div>
             </div>
@@ -204,10 +202,9 @@ function Home() {
                 </h1>
                 <div className="divider lg:hidden my-0"></div>
                 <p className="text-xl lg:text-[26px] line mt-2 text-neutral">
-                  Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
-                  iaculis. Iaculis urna id volutpat lacus laoreet non. Magna sit
-                  amet purus gravida quis blandit. Habitant morbi tristique
-                  senectus et netus!
+                  Whether you're updating your wardrobe or searching for the
+                  perfect outfit for a special occasion, Daisies is here to
+                  inspire your style journey
                 </p>
               </div>
               <figure>
